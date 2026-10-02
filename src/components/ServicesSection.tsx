@@ -4,8 +4,14 @@ import Image from "next/image";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function ConocenosSeccion() {
+  const numeroTelefono = "51962266922";
+  const mensajeWhatsApp = encodeURIComponent(
+    "¡Hola! Vengo desde su sitio web y me gustaría recibir más información sobre sus servicios. 💧🏢"
+  );
+  const enlaceWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeWhatsApp}`;
+
   return (
-    <section id="conocenos" className="py-16 md:py-24 bg-white overflow-hidden">
+    <section id="conocenos" className="py-16 md:py-24 bg-white overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -51,10 +57,12 @@ export default function ConocenosSeccion() {
               </li>
             </ul>
 
-            {/* Botón CTA (Aprende Más / Conócenos) */}
+            {/* Botón CTA redirigiendo a WhatsApp */}
             <div className="pt-4">
               <a
-                href="#servicios"
+                href={enlaceWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:scale-105 transition-all duration-300 uppercase tracking-wider group"
               >
                 <span>Conoce Más Servicios</span>
@@ -67,7 +75,7 @@ export default function ConocenosSeccion() {
           {/* COLUMNA DERECHA (lg:order-2): Imagen Corporativa + Insignia Superior + Barras Decorativas */}
           <div className="lg:col-span-6 relative lg:order-2">
             
-            {/* Elementos Decorativos Laterales (Alineados a la derecha) */}
+            {/* Elementos Decorativos Laterales */}
             <div className="absolute -right-3 top-1/3 w-2 h-16 bg-emerald-600 rounded-full z-10 hidden sm:block" />
             <div className="absolute -right-3 top-1/2 w-2 h-12 bg-teal-500 rounded-full z-10 hidden sm:block" />
 

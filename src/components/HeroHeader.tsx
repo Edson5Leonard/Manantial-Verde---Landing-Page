@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Truck } from "lucide-react";
+import { Truck } from "lucide-react";
 
 interface Slide {
   id: number;
@@ -27,7 +27,7 @@ const slides: Slide[] = [
     subtitle: "Y estamos aquí para garantizarla en cada gota.",
     ctaText: "Conócenos",
     ctaLink: "#nosotros", // Redirige a la sección Sobre Nosotros
-    productImage: "/producto_1.png", 
+    productImage: "/producto_1.png",
     badgeText: "100% Ozonizada",
   },
   {
@@ -66,17 +66,9 @@ export default function HeroHeader() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 8000); // Cambiado a 8 segundos
     return () => clearInterval(timer);
   }, []);
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? slides.length - 1 : current - 1);
-  };
-
-  const nextSlide = () => {
-    setCurrent(current === slides.length - 1 ? 0 : current + 1);
-  };
 
   return (
     <section id="inicio" className="relative w-full h-[580px] md:h-[680px] bg-slate-950 overflow-hidden font-sans">
@@ -165,23 +157,6 @@ export default function HeroHeader() {
           </div>
         );
       })}
-
-      {/* Flechas de Navegación Manual */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/70 text-white p-3.5 rounded-full backdrop-blur-sm border border-white/20 transition"
-        aria-label="Anterior"
-      >
-        <ChevronLeft size={24} />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/70 text-white p-3.5 rounded-full backdrop-blur-sm border border-white/20 transition"
-        aria-label="Siguiente"
-      >
-        <ChevronRight size={24} />
-      </button>
 
       {/* Puntos de Indicación (Dots) */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">

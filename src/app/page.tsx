@@ -1,4 +1,5 @@
 import Navbar from "@/src/components/Navbar";
+import WhatsAppButton from "@/src/components/WhatsAppButton";
 import About from "@/src/components/About";
 import Catalog from "@/src/components/Catalog";
 import Sustainability from "@/src/components/Sustainability";
@@ -11,7 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50">
       <Navbar />
-      
+      <WhatsAppButton />
       <HeroHeader/>
       <About />
       <ServicesSection />
