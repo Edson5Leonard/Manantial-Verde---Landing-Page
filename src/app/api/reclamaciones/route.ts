@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       telefono,
       email,
       direccion,
-      tipoReclamo, // "Reclamo" o "Queja"
+      tipoReclamo, 
       montoReclamado,
       descripcionProducto,
       detalle,
