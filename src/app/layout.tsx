@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { seoMetadata } from "@/src/config/seo/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,22 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
-  title: "Manantial Verde",
-  description: "Agua de mesa ozonizada pura, fresca y saludable. Reparto a domicilio. Realiza tu pedido directo por WhatsApp.",
-  keywords: ["agua de mesa", "agua purificada", "delivery de agua", "Manantial Verde", "bidones de agua"],
-  icons: {
-    icon: "/logo_1.png", 
-    shortcut: "/logo_1.png",
-    apple: "/logo_1.png",
-  },
-  openGraph: {
-    title: "Manantial Verde - Agua de Mesa & Delivery",
-    description: "Pedir agua a domicilio nunca fue tan fácil. Compra mínima 6 bidones de 10L.",
-    images: ['/logo_1.png'],
-  },
-};
+export const metadata: Metadata = seoMetadata;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
